@@ -1,0 +1,12 @@
+{
+  "dataset_root": "/compyfs/feng779/RDycore/Harvey/DATA/VRM3_sed/rdycore_ml_dataset_core",
+  "maximum_training_member": 32,
+  "nested_training_trajectories": 864,
+  "validation_trajectories": 192,
+  "test_trajectories": 192,
+  "training_events": 27,
+  "validation_events": 6,
+  "test_events": 6,
+  "event_split_source": "/compyfs/feng779/RDycore/Harvey/ML/UNet/converged_physical_v2/event_split.csv",
+  "normalization_rule": "statistics use only this subset's training members"
+}

@@ -1,0 +1,648 @@
+{
+  "cleanup_migration": {
+    "created_utc": "2026-11-16T06:32:58.291990+00:00",
+    "identity_relocations": {
+      "campaign_manifest": {
+        "from": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v2/campaign_manifest.json",
+        "sha256": "e079d0b62d9bc3e1b05d965c93a1cea2c827266a07ce4746ca041249556edd6c",
+        "to": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/provenance/training_sources/pino_depth4_plateau_v2_original/campaign_manifest.json"
+      },
+      "trainer": {
+        "from": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/src/train_pino_depth4_plateau_v2.py",
+        "sha256": "0c1b01460c2cd0cf7d8a1a375eec5a14f64471254b8157448229cd362cc16ea9",
+        "to": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/provenance/training_sources/pino_depth4_plateau_v2_original/train_pino_depth4_plateau_v2.py"
+      }
+    },
+    "migration_id": "pino-v2-coldstart-repair-2026-11-15",
+    "reason": "Relocate the exact SHA-bound original v2 trainer and campaign manifest before making the active workflow independently cold-start; historical continuation evidence and scientific hashes are unchanged."
+  },
+  "command": [
+    "/global/common/software/m3780/feng779/conda/rdycore-ai-gpu-py39/bin/python",
+    "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v2/import_v1_continuation.py",
+    "--source-root",
+    "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1",
+    "--output-root",
+    "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v2"
+  ],
+  "continuation": {
+    "amendment": "maximum epochs per stage increased from 120 to 240; all other scientific settings unchanged",
+    "imported_utc": "2026-11-05T17:10:49.881174+00:00",
+    "parent_command": [
+      "/global/common/software/m3780/feng779/conda/rdycore-ai-gpu-py39/bin/python",
+      "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/src/train_pino_depth4_plateau.py",
+      "--subset",
+      "m032",
+      "--model",
+      "pino_resunet_large",
+      "--rollout-hours",
+      "4",
+      "--dataset-root",
+      "/global/cfs/cdirs/m4267/dongyu/AI_foundation/DATA/rdycore_ml_dataset_core",
+      "--shared-artifact-dir",
+      "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/shared",
+      "--channel-artifact-dir",
+      "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/channels",
+      "--output-root",
+      "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1",
+      "--campaign-manifest",
+      "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v1/campaign_manifest.json",
+      "--epochs-per-invocation",
+      "12",
+      "--transitions-per-epoch",
+      "8192",
+      "--validation-transitions",
+      "2048",
+      "--batch-size",
+      "1",
+      "--num-workers",
+      "4",
+      "--threads",
+      "16",
+      "--detach-interval",
+      "4",
+      "--seed",
+      "20260917",
+      "--device",
+      "cuda",
+      "--mixed-precision",
+      "off",
+      "--no-deterministic",
+      "--pin-memory",
+      "--depth-weight",
+      "4",
+      "--momentum-weight",
+      "1",
+      "--supervised-scale",
+      "3",
+      "--weight-decay",
+      "1e-5",
+      "--learning-rate",
+      "2e-4",
+      "--endpoint-learning-rate",
+      "0",
+      "--dry-tolerance-m",
+      "1e-4",
+      "--max-velocity-m-s",
+      "10",
+      "--invocation-id",
+      "60827560.0.1793838638.13711"
+    ],
+    "parent_resolved_arguments": {
+      "batch_size": 1,
+      "campaign_manifest": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v1/campaign_manifest.json",
+      "channel_artifact_dir": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/channels",
+      "dataset_root": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/DATA/rdycore_ml_dataset_core",
+      "depth_weight": 4.0,
+      "detach_interval": 4,
+      "deterministic": false,
+      "device": "cuda",
+      "dry_tolerance_m": 0.0001,
+      "dt_s": 3600.0,
+      "dx_m": 147.302734375,
+      "dy_m": 144.244140625,
+      "endpoint_learning_rate": 0.0,
+      "epochs": 120,
+      "epochs_per_invocation": 12,
+      "gradient_clip": 1.0,
+      "gravity": 9.81,
+      "invocation_id": "60827560.0.1793838638.13711",
+      "learning_rate": 0.0002,
+      "manning_n": 0.015,
+      "max_velocity_m_s": 10.0,
+      "mixed_precision": "off",
+      "model": "pino_resunet_large",
+      "momentum_weight": 1.0,
+      "morph_pretrained": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/pretrained/morph-Ti-FM-max_ar1_ep225.pth",
+      "num_workers": 4,
+      "output_root": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1",
+      "physics_mass_scale": 1e-05,
+      "physics_mass_weight": 1e-06,
+      "physics_momentum_scale": 0.001,
+      "physics_momentum_weight": 1e-06,
+      "physics_warmup_epochs": 2,
+      "pin_memory": true,
+      "poseidon_b_pretrained": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/pretrained/Poseidon-B",
+      "poseidon_t_pretrained": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/pretrained/Poseidon-T",
+      "rollout_hours": 4,
+      "seed": 20260917,
+      "shared_artifact_dir": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/shared",
+      "skip_checkpoints": false,
+      "smoke": false,
+      "subset": "m032",
+      "supervised_scale": 3.0,
+      "threads": 16,
+      "transitions_per_epoch": 8192,
+      "validation_transitions": 2048,
+      "weight_decay": 1e-05,
+      "y_axis_sign": -1.0
+    },
+    "preserved_state": [
+      "model",
+      "optimizer",
+      "scheduler",
+      "rng",
+      "samplers",
+      "best_checkpoint_counters",
+      "history_epochs_1_through_120"
+    ],
+    "source_artifact_sha256": {
+      "checkpoint_best_validation_supervised.pt": "ba1c56e57e23e8293c1c39ec9241326b5e2af9a2f373da2c5b1471af3a6c7ed0",
+      "checkpoint_last.pt": "401b15f0c97914730654753d57d9a5990d7a768a80e90100cd05af6cddcc604c",
+      "history.csv": "2b5c7e26b472a9965dc8a7d1277aaa5bbe0d7c06cf46342d60cdd567fafc204c",
+      "provenance.json": "8a984f0ea9cc0468f3c33c8f6abbccfcc9c2e5191f7639fb2d7b78f6cecb26c2",
+      "slice_status.json": "2d1df288dfc000e546756d2b6079b567b956ae54597a65bd705c8e71190d9b66",
+      "training_config.json": "6869b12376e8627bd9da53127070ad0f3a28186132d34ac2b3c7d2bb4a3a5df8"
+    },
+    "source_epoch": 120,
+    "source_protocol_id": "houston-m032-common13-pino-depth4-plateau-v1",
+    "source_stage": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1/pino_resunet_large/stage_ar04"
+  },
+  "created_utc": "2026-11-05T00:30:49.382138+00:00",
+  "cudnn_version": 90100,
+  "data": {
+    "train_windows_available": 153984,
+    "training_events": 27,
+    "training_members": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "training_trajectories": 864,
+    "validation_events": 6,
+    "validation_members": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "validation_trajectories": 192,
+    "validation_windows_available": 39904
+  },
+  "files": {
+    "campaign_manifest": {
+      "bytes": 3093,
+      "mtime_ns": 1793898414985860542,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/provenance/training_sources/pino_depth4_plateau_v2_original/campaign_manifest.json",
+      "sha256": "e079d0b62d9bc3e1b05d965c93a1cea2c827266a07ce4746ca041249556edd6c"
+    },
+    "channel_masks": {
+      "bytes": 947693,
+      "mtime_ns": 1789974976000000000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/channels/channel_masks_fullres.npz",
+      "sha256": "30d4f8c7e5e47870081e0fb4867d4994c51b45ac584c42cd3f3d682d064c8df1"
+    },
+    "normalization": {
+      "bytes": 1992,
+      "mtime_ns": 1789958314000000000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/shared/normalization.json",
+      "sha256": "2dc069fc41f9f3699133e2b4a18eb9d67ee36aaef7fe32d2b3f77bdd42387e9c"
+    },
+    "source_1": {
+      "bytes": 20182,
+      "mtime_ns": 1793835733963459000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/src/vendor/pino/physics.py",
+      "sha256": "5201fda9e71c807cbd79536509d77cbf3cc71b0d5379c48fc7dd375eae8ebd82"
+    },
+    "source_2": {
+      "bytes": 5771,
+      "mtime_ns": 1793835733940650000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/src/vendor/pino/model.py",
+      "sha256": "f686a3f2ac1335c91a3c4e1752b236e6f01ddca63706c2885de0abfa246b35f2"
+    },
+    "static_grid": {
+      "bytes": 637947,
+      "mtime_ns": 1789238794000000000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/DATA/rdycore_ml_dataset_core/static_grid.h5",
+      "sha256": "4545bc8660af5a42579936a5b39614f5de5281a4b3e6e634b08db60af987b3a4"
+    },
+    "trainer": {
+      "bytes": 94811,
+      "mtime_ns": 1793898400876723000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/provenance/training_sources/pino_depth4_plateau_v2_original/train_pino_depth4_plateau_v2.py",
+      "sha256": "0c1b01460c2cd0cf7d8a1a375eec5a14f64471254b8157448229cd362cc16ea9"
+    },
+    "trajectory_split": {
+      "bytes": 424732,
+      "mtime_ns": 1791872186781698000,
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/shared/trajectory_split.csv",
+      "sha256": "823b9810e95a7c4e7ebdf09c7161122b7be87a0b177a879cf6d6cd0e8ebbfa55"
+    }
+  },
+  "git": {
+    "benchmark": {
+      "root": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark",
+      "unavailable": "Command '['git', '-C', '/global/cfs/cdirs/m4267/dongyu/AI_benchmark', 'rev-parse', 'HEAD']' returned non-zero exit status 128."
+    },
+    "foundation": {
+      "root": "/global/cfs/cdirs/m4267/dongyu/AI_foundation",
+      "unavailable": "Command '['git', '-C', '/global/cfs/cdirs/m4267/dongyu/AI_foundation', 'rev-parse', 'HEAD']' returned non-zero exit status 128."
+    }
+  },
+  "host": "nid002032",
+  "initial_checkpoint": null,
+  "initialization_policy": "seeded cold start",
+  "loss_audit": {
+    "auxiliary_losses": [],
+    "components": [
+      "supervised",
+      "depth_mse",
+      "momentum_x_mse",
+      "momentum_y_mse",
+      "physics",
+      "physics_mass",
+      "physics_momentum_x",
+      "physics_momentum_y",
+      "objective"
+    ],
+    "validation_selection_excludes_physics": true
+  },
+  "model": {
+    "adapter_training": "frozen neutral",
+    "adapter_width": 8,
+    "architecture_key": "houston_resunet_large",
+    "base_channels": 24,
+    "capacity_role": "old m032 PINO hyperparameters (base=24, depth=4, adapter=8)",
+    "cudnn_deterministic": true,
+    "depth": 4,
+    "deterministic_algorithms": false,
+    "dropout": 0.0,
+    "external_residual_update": true,
+    "parameters": 1570934,
+    "physics_regularizer": true,
+    "prediction_target": "normalized conservative-state increment",
+    "resolved_device": "cuda",
+    "strict_fp32": true,
+    "tf32_enabled": false,
+    "trainable_parameters": 1570875,
+    "treatment": "pino_resunet_large"
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "parameter_groups": [
+      {
+        "initial_learning_rate": 0.0002,
+        "name": "group_0",
+        "parameters": 1570875,
+        "weight_decay": 1e-05
+      }
+    ],
+    "schedule": "ReduceLROnPlateau(mode=min, factor=0.5, patience=2), restarted at each curriculum stage"
+  },
+  "packages": {
+    "h5py": "3.11.0",
+    "neuraloperator": "0.3.0",
+    "numpy": "1.24.3",
+    "pandas": "2.2.2",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.29.2"
+  },
+  "platform": "Linux-6.4.0-150600.23.135_15.0.45-cray_shasta_c-x86_64-with-glibc2.38",
+  "protocol": {
+    "architecture_by_treatment": {
+      "fno_v2": "fno_v2",
+      "morph_common13": "morph_common13",
+      "pino_fno_v2": "fno_v2",
+      "pino_resunet_large": "houston_resunet_large",
+      "pino_resunet_small": "houston_resunet_small",
+      "poseidon_b_common13": "poseidon_b_common13",
+      "poseidon_t_common13": "poseidon_t_common13",
+      "resunet_large": "houston_resunet_large",
+      "resunet_small": "houston_resunet_small",
+      "unet_v2": "unet_v2"
+    },
+    "architecture_contract": {
+      "fno_v2": {
+        "domain_padding": 0.0625,
+        "hidden_channels": 24,
+        "layers": 4,
+        "lifting_channels": 48,
+        "modes_height": 12,
+        "modes_width": 20,
+        "projection_channels": 48
+      },
+      "houston_resunet_large": {
+        "adapter_training": "frozen neutral adapter, matching old m032 PINO",
+        "adapter_width": 8,
+        "base_channels": 24,
+        "depth": 4,
+        "dropout": 0.0,
+        "old_m032_difference": "+480 input-endpoint weights required by 13 rather than 11 channels",
+        "parameters": 1570934,
+        "trainable_parameters": 1570875
+      },
+      "houston_resunet_small": {
+        "adapter_width": 0,
+        "base_channels": 14,
+        "depth": 4,
+        "dropout": 0.0,
+        "parameters": 535825
+      },
+      "morph_tuning_mode": "full",
+      "poseidon_b_learning_rate_note": "hot-start stability rate 5e-6 backbone / 5e-5 endpoints, retained from the documented m032 numerical-stability correction",
+      "poseidon_initial_lead_time": 0.05,
+      "poseidon_initialization": "published pretrained backbone with fresh 13-channel task endpoints",
+      "poseidon_refiner_width": 24,
+      "unet_v2_base_channels": 16
+    },
+    "architecture_internal_position_information": "allowed when native to the architecture; the external 13-channel tensor is identical",
+    "auxiliary_losses": [],
+    "batch_size": 1,
+    "continuation_parent": {
+      "checkpoint_best_sha256": "ba1c56e57e23e8293c1c39ec9241326b5e2af9a2f373da2c5b1471af3a6c7ed0",
+      "checkpoint_last_sha256": "401b15f0c97914730654753d57d9a5990d7a768a80e90100cd05af6cddcc604c",
+      "epoch": 120,
+      "history_sha256": "2b5c7e26b472a9965dc8a7d1277aaa5bbe0d7c06cf46342d60cdd567fafc204c",
+      "output_root": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1",
+      "protocol_id": "houston-m032-common13-pino-depth4-plateau-v1",
+      "provenance_sha256": "8a984f0ea9cc0468f3c33c8f6abbccfcc9c2e5191f7639fb2d7b78f6cecb26c2",
+      "slice_status_sha256": "2d1df288dfc000e546756d2b6079b567b956ae54597a65bd705c8e71190d9b66",
+      "stage": "AR4",
+      "training_config_sha256": "6869b12376e8627bd9da53127070ad0f3a28186132d34ac2b3c7d2bb4a3a5df8"
+    },
+    "convergence": {
+      "maximum_epochs": 240,
+      "minimum_epochs": 12,
+      "minimum_relative_improvement": 0.001,
+      "patience": 8
+    },
+    "curriculum_hours": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "epochs_by_stage": {
+      "16": 240,
+      "32": 240,
+      "4": 240,
+      "8": 240
+    },
+    "exposure_policy": "8,192 training forecast transitions per epoch, maximum 240 epochs per stage, stopped after validation-plateau convergence",
+    "forecast_transitions_per_epoch": 8192,
+    "input_feature_count": 13,
+    "input_features": [
+      "height_t",
+      "momentum_x_t",
+      "momentum_y_t",
+      "log1p_rainfall_t",
+      "ocean_height_t",
+      "bed_elevation",
+      "domain_mask",
+      "ocean_boundary_mask",
+      "x_coordinate",
+      "y_coordinate",
+      "stream_core_mask",
+      "channel_corridor_mask",
+      "stream_proximity"
+    ],
+    "maximum_forecast_transitions_per_model": 7864320,
+    "model_keys": [
+      "pino_resunet_large"
+    ],
+    "normalization_note": "subset-specific train-only mean+std delta normalization is retained; raw network output zero denormalizes to the subset's training mean increment, not exact persistence",
+    "numerics": {
+      "automatic_mixed_precision": false,
+      "cuda_matmul_tf32": false,
+      "cudnn_tf32": false,
+      "determinism_exception": "CUDA bilinear-interpolation backward lacks a supported deterministic kernel",
+      "deterministic_algorithms": false,
+      "float_precision": "float32",
+      "nvidia_tf32_override": 0,
+      "seeded": true
+    },
+    "optimizer": {
+      "gradient_clip_norm": 1.0,
+      "learning_rates_by_treatment": {
+        "fno_v2": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 0.0001
+        },
+        "morph_common13": {
+          "endpoint_learning_rate": 1e-05,
+          "learning_rate": 1e-06
+        },
+        "pino_fno_v2": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 0.0001
+        },
+        "pino_resunet_large": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 0.0002
+        },
+        "pino_resunet_small": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 0.0002
+        },
+        "poseidon_b_common13": {
+          "endpoint_learning_rate": 5e-05,
+          "learning_rate": 5e-06
+        },
+        "poseidon_t_common13": {
+          "endpoint_learning_rate": 0.0002,
+          "learning_rate": 2e-05
+        },
+        "resunet_large": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 0.0002
+        },
+        "resunet_small": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 0.0002
+        },
+        "unet_v2": {
+          "endpoint_learning_rate": 0.0,
+          "learning_rate": 5e-05
+        }
+      },
+      "name": "AdamW",
+      "schedule": {
+        "factor": 0.5,
+        "mode": "min",
+        "name": "ReduceLROnPlateau",
+        "patience": 2,
+        "restart_each_curriculum_stage": true
+      },
+      "weight_decay": 1e-05
+    },
+    "physics_treatments": [
+      "pino_resunet_large"
+    ],
+    "prediction_parameterization": "normalized conservative-state increment",
+    "primary_evaluation": "validation-best converged AR32 checkpoint",
+    "projector": {
+      "dry_tolerance_m": 0.0001,
+      "max_velocity_m_s": 10.0,
+      "training_gradient": "straight-through identity",
+      "zero_dry_momentum": true
+    },
+    "protocol_id": "houston-m032-common13-pino-depth4-plateau-v2",
+    "reproducibility": {
+      "cudnn_deterministic": true,
+      "strict_fp32": true,
+      "tf32": false,
+      "torch_deterministic_algorithms": false
+    },
+    "sampler": {
+      "replacement": true,
+      "training": "exact hierarchical event/member/window balance",
+      "validation": "fixed seeded exact hierarchical event/member/window balance"
+    },
+    "secondary_checkpoint": "last checkpoint at convergence",
+    "seed": 20260917,
+    "stage_transition": "preceding validation-best checkpoint; fresh optimizer",
+    "state_update": "U_next = wet_dry_project(U_current + denormalize_delta(model(x)))",
+    "subset": "m032",
+    "supervised_loss": {
+      "component_weights": [
+        4.0,
+        1.0,
+        1.0
+      ],
+      "depth_weight": 4.0,
+      "inundation_loss": false,
+      "literal_formula": "2*D + 0.5*Qx + 0.5*Qy",
+      "momentum_weight": 1.0,
+      "selection_metric": "validation supervised MSE only",
+      "supervised_scale": 3.0,
+      "type": "domain-masked normalized-delta MSE"
+    },
+    "swe_regularizer": {
+      "dry_momentum_weight": 0.0,
+      "dt_s": 3600.0,
+      "dx_m": 147.302734375,
+      "dy_m": 144.244140625,
+      "enabled_treatments": [
+        "pino_resunet_large"
+      ],
+      "gravity_m_s2": 9.81,
+      "manning_n": 0.015,
+      "mass_scale_m_s": 1e-05,
+      "mass_weight": 1e-06,
+      "momentum_shoreline_exclusion_cells": 1,
+      "momentum_x_scale_m2_s2": 0.001,
+      "momentum_x_weight": 1e-06,
+      "momentum_y_scale_m2_s2": 0.001,
+      "momentum_y_weight": 1e-06,
+      "open_boundary_exclusion_cells": 1,
+      "positivity_weight": 0.0,
+      "project_states_inside_residual": false,
+      "warmup_epochs": 2,
+      "wet_only_momentum": true,
+      "y_axis_sign": -1.0
+    },
+    "teacher_forcing": false,
+    "training_members_per_event": 32,
+    "training_trajectories": 864,
+    "truncated_bptt_detach_interval": 4,
+    "validation_transitions_per_epoch": 2048
+  },
+  "python": "3.9.19 | packaged by conda-forge | (main, Mar 20 2024, 12:50:21) \n[GCC 12.3.0]",
+  "resolved_arguments": {
+    "batch_size": 1,
+    "campaign_manifest": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v2/campaign_manifest.json",
+    "channel_artifact_dir": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/channels",
+    "dataset_root": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/DATA/rdycore_ml_dataset_core",
+    "depth_weight": 4.0,
+    "detach_interval": 4,
+    "deterministic": false,
+    "device": "cuda",
+    "dry_tolerance_m": 0.0001,
+    "dt_s": 3600.0,
+    "dx_m": 147.302734375,
+    "dy_m": 144.244140625,
+    "endpoint_learning_rate": 0.0,
+    "epochs": 240,
+    "epochs_per_invocation": 12,
+    "gradient_clip": 1.0,
+    "gravity": 9.81,
+    "invocation_id": "60827560.0.1793838638.13711",
+    "learning_rate": 0.0002,
+    "manning_n": 0.015,
+    "max_velocity_m_s": 10.0,
+    "mixed_precision": "off",
+    "model": "pino_resunet_large",
+    "momentum_weight": 1.0,
+    "morph_pretrained": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/pretrained/morph-Ti-FM-max_ar1_ep225.pth",
+    "num_workers": 4,
+    "output_root": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v2",
+    "physics_mass_scale": 1e-05,
+    "physics_mass_weight": 1e-06,
+    "physics_momentum_scale": 0.001,
+    "physics_momentum_weight": 1e-06,
+    "physics_warmup_epochs": 2,
+    "pin_memory": true,
+    "poseidon_b_pretrained": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/pretrained/Poseidon-B",
+    "poseidon_t_pretrained": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/pretrained/Poseidon-T",
+    "rollout_hours": 4,
+    "seed": 20260917,
+    "shared_artifact_dir": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/data/metadata/m032/shared",
+    "skip_checkpoints": false,
+    "smoke": false,
+    "subset": "m032",
+    "supervised_scale": 3.0,
+    "threads": 16,
+    "transitions_per_epoch": 8192,
+    "validation_transitions": 2048,
+    "weight_decay": 1e-05,
+    "y_axis_sign": -1.0
+  },
+  "resolved_device": "cuda",
+  "torch_cuda_version": "12.4"
+}

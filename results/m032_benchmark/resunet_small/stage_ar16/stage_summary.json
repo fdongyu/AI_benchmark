@@ -1,0 +1,37 @@
+{
+  "architecture_key": "houston_resunet_small",
+  "best_epoch": 47,
+  "best_validation_supervised": 4.507877459915692,
+  "checkpoint_sha256": {
+    "best": "8d28fcb7bd0331b08b051c1a6a337656ed2c46267ed815bb1ccdfc3ce2641fe5",
+    "final": "95ba49de26e47604dca089e71c2c4f621bf8180e65bdcd35c8bdf15fbaf72702",
+    "last": "95ba49de26e47604dca089e71c2c4f621bf8180e65bdcd35c8bdf15fbaf72702"
+  },
+  "complete": true,
+  "completed_utc": "2026-11-10T01:13:31.920290+00:00",
+  "convergence_rule": {
+    "maximum_epochs": 240,
+    "minimum_epochs": 12,
+    "minimum_relative_improvement": 0.001,
+    "patience": 8
+  },
+  "early_stopping_stale_epochs": 8,
+  "epochs_completed": 55,
+  "epochs_required": 240,
+  "epochs_this_invocation": 7,
+  "forecast_transitions_completed_this_stage": 450560,
+  "initial_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/resunet_small/stage_ar08/checkpoint_best_validation_supervised.pt",
+  "initial_checkpoint_sha256": "ae4bf53618b8b08409c5c773c97979f74b466ce1876cd555cf1675cfe2bd01f7",
+  "invocation_elapsed_minutes": 33.521785767873126,
+  "invocation_end_epoch": 55,
+  "invocation_id": "60991759.6.20.1794271166.20966",
+  "invocation_start_epoch": 49,
+  "model": "resunet_small",
+  "primary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/resunet_small/stage_ar16/checkpoint_best_validation_supervised.pt",
+  "primary_evaluation": false,
+  "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+  "rollout_hours": 16,
+  "secondary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/resunet_small/stage_ar16/checkpoint_final.pt",
+  "stop_reason": "validation_plateau",
+  "subset": "m032"
+}

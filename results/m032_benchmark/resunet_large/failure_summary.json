@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-16T06:13:49Z",
+  "status": "failed",
+  "publication_scope": true,
+  "reportable_ar32_result": false,
+  "model": "resunet_large",
+  "architecture_key": "houston_resunet_large",
+  "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+  "subset": "m032",
+  "stage": "AR4",
+  "rollout_hours": 4,
+  "slurm": {
+    "array_job_id": "60991759",
+    "array_task_id": 8,
+    "job_id": "60991759_8"
+  },
+  "epochs_logged": 9,
+  "failed_during_epoch": 10,
+  "training_forecast_transitions_logged": 73728,
+  "validation_forecast_transitions_logged": 18432,
+  "best_epoch": 7,
+  "best_validation_supervised": 8.103914388056737,
+  "last_logged_epoch": {
+    "epoch": 9,
+    "train_supervised": 29.960453522950555,
+    "validation_supervised": 665.5554282670419
+  },
+  "failure_type": "nonfinite_gradient_norm",
+  "exception_type": "RuntimeError",
+  "exception_message": "The total norm of order 2.0 for gradients from parameters is non-finite, so it cannot be clipped.",
+  "checkpoint_retained": false,
+  "source_log_sha256": {
+    "stdout": "e9afa62c992a433f662a3de6db06079e7dc0acff03188c5c2104ddc499b9922b",
+    "stderr": "1a3571421bbf8804206929ac59720402095b359fc40997319abfd7028473f882"
+  },
+  "history_sha256": "fed0b1c9964dcab5938408b696567dd358b577f03c4d0512f33c0d692dd5519a"
+}

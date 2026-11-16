@@ -1,0 +1,35 @@
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editors and operating systems
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Local runtime state (not scientific artifacts)
+workflows/**/cache/
+workflows/**/logs/
+workflows/**/locks/
+workflows/**/receipts/
+*.out
+*.err
+*.tmp
+*.bak
+staging/
+tmp/
+
+# Reproducible local figure products (regenerate from tracked evaluation data)
+/analysis/figures/
+/analysis/.figures.render-*/
+/analysis/.figures.previous-*/
+
+# Local environments
+.venv/
+venv/
+.env

@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-09-21T08:58:06.238072+00:00",
+  "native_raster_shape": [
+    256,
+    512
+  ],
+  "native_pixel_spacing_m": [
+    144.244140625,
+    147.302734375
+  ],
+  "stream_crs": "EPSG:32610",
+  "stream_core_m": 225.0,
+  "stream_corridor_m": 450.0,
+  "gauge_corridor_m": 450.0,
+  "core_gauge_count": 14,
+  "excluded_outlet_gauges": [
+    "08072600",
+    "08073100"
+  ],
+  "domain_pixels": 67377,
+  "stream_core_pixels": 4745,
+  "channel_corridor_pixels": 9211,
+  "training_hours_scored": 157440,
+  "high_flow_hours": 58642,
+  "high_flow_quantile": 0.75,
+  "high_flow_thresholds": {
+    "channel_mean_depth_m": 0.3563019335269928,
+    "channel_p90_depth_m": 1.5051822483539585,
+    "channel_positive_rise_m_h": 0.003824373590759933,
+    "domain_wet_fraction": 0.11506263729739358
+  },
+  "oversample_factor": 4.0,
+  "priority_formula": "1 + factor * clip(max(indicator / train quantile), 0, 2)",
+  "leakage_control": "sampling thresholds and scores use training trajectories only"
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "model": "unet_v2",
+      "architecture_key": "unet_v2",
+      "physics_regularizer": false,
+      "initialization_policy": "seeded_random_cold_start",
+      "learning_rate": 0.00005,
+      "endpoint_learning_rate": 0.0,
+      "slice_epochs": 12,
+      "description": "U-Net with the common external residual state update."
+    },
+    {
+      "model": "fno_v2",
+      "architecture_key": "fno_v2",
+      "physics_regularizer": false,
+      "initialization_policy": "seeded_random_cold_start",
+      "learning_rate": 0.0001,
+      "endpoint_learning_rate": 0.0,
+      "slice_epochs": 12,
+      "description": "Four-layer Fourier neural operator with no SWE regularizer."
+    },
+    {
+      "model": "resunet_small",
+      "architecture_key": "houston_resunet_small",
+      "physics_regularizer": false,
+      "initialization_policy": "seeded_random_cold_start",
+      "learning_rate": 0.0002,
+      "endpoint_learning_rate": 0.0,
+      "slice_epochs": 12,
+      "description": "Small depth-4 residual U-Net without an SWE regularizer."
+    },
+    {
+      "model": "pino_resunet_small",
+      "architecture_key": "houston_resunet_small",
+      "physics_regularizer": true,
+      "initialization_policy": "seeded_random_cold_start",
+      "learning_rate": 0.0002,
+      "endpoint_learning_rate": 0.0,
+      "slice_epochs": 8,
+      "description": "The same small residual U-Net with the declared SWE consistency term."
+    },
+    {
+      "model": "resunet_large",
+      "architecture_key": "houston_resunet_large",
+      "physics_regularizer": false,
+      "initialization_policy": "seeded_random_cold_start",
+      "learning_rate": 0.0002,
+      "endpoint_learning_rate": 0.0,
+      "slice_epochs": 12,
+      "description": "Large residual U-Net architecture matched to PINO-ResU-Net-large, without the SWE loss."
+    }
+  ]
+}

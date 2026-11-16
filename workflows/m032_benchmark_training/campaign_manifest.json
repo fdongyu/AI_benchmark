@@ -1,0 +1,115 @@
+{
+  "campaign_id": "houston-common13-m032-depth4-plateau-v1",
+  "purpose": "Record the six-model m032 comparison contract: five models trained by this campaign and one retained PINO-ResU-Net-large result.",
+  "protocol_ids": {
+    "m032": "houston-m032-common13-depth4-plateau-v1"
+  },
+  "subset": "m032",
+  "model_registry_file": "model_registry.json",
+  "model_registry_sha256": "5b0ca05bffd904d5bee52ab1b5493dad6faa32f59a88b3f5feb106c79164383f",
+  "model_keys": [
+    "unet_v2",
+    "fno_v2",
+    "resunet_small",
+    "pino_resunet_small",
+    "resunet_large"
+  ],
+  "comparison_model_keys": [
+    "unet_v2",
+    "fno_v2",
+    "resunet_small",
+    "pino_resunet_small",
+    "resunet_large",
+    "pino_resunet_large"
+  ],
+  "pino_resunet_large_reference": {
+    "model": "pino_resunet_large",
+    "protocol_id": "houston-m032-common13-pino-depth4-plateau-v2",
+    "output_root": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_benchmark",
+    "primary_stage": "AR32",
+    "primary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_benchmark/pino_resunet_large/stage_ar32/checkpoint_best_validation_supervised.pt",
+    "primary_checkpoint_sha256": "189f6e4a7b5a5493d82ba17f7f563d50d5890660f8c390c0ab74cc6ed59e90eb",
+    "best_epoch": 52,
+    "best_validation_supervised": 3.0332421664857083,
+    "stage_anchors": {
+      "4": {
+        "best_epoch": 136,
+        "best_checkpoint_sha256": "f026ad65f12b8a0313ec4c83c3f74190bffbadcd8d22147aa6c1d86447bcca3b",
+        "stage_summary_sha256": "f41882475c29c2becaad2001c489590091afc45d345ee54ab29c84c040914b0d"
+      },
+      "8": {
+        "best_epoch": 84,
+        "best_checkpoint_sha256": "220bc910c5fa201ba19c184165fe72af509e5ce865989aa8dd458732969990c3",
+        "stage_summary_sha256": "8d43376b99bd3b4445ba2adac1e66c9a9c1e6621a9145e3a568175d7dbd1c2cf"
+      },
+      "16": {
+        "best_epoch": 72,
+        "best_checkpoint_sha256": "d1c31dd15d2dc3ead41d2b982a6c34def0613be8dfef710267afdb68c63d2d8b",
+        "stage_summary_sha256": "be83ec934eb26ce1779d9a913271e5efe70fce3209a59cca548e3dd0ddafc0e9"
+      },
+      "32": {
+        "best_epoch": 52,
+        "best_checkpoint_sha256": "189f6e4a7b5a5493d82ba17f7f563d50d5890660f8c390c0ab74cc6ed59e90eb",
+        "stage_summary_sha256": "fc2fc4c45901e75252b04e60314a6a6844448bfc4617d3c2e49842d2e1d2db52"
+      }
+    }
+  },
+  "feature_names": [
+    "height_t",
+    "momentum_x_t",
+    "momentum_y_t",
+    "log1p_rainfall_t",
+    "ocean_height_t",
+    "bed_elevation",
+    "domain_mask",
+    "ocean_boundary_mask",
+    "x_coordinate",
+    "y_coordinate",
+    "stream_core_mask",
+    "channel_corridor_mask",
+    "stream_proximity"
+  ],
+  "prediction_target": "normalized conservative-state increment",
+  "curriculum_hours": [4, 8, 16, 32],
+  "training_transitions_per_epoch": 8192,
+  "validation_transitions_per_epoch": 2048,
+  "maximum_epochs_per_stage": 240,
+  "state_loss": {
+    "relative_component_weights": {"h": 4, "qx": 1, "qy": 1},
+    "supervised_scale": 3,
+    "expanded_formula": "2*MSE(h)+0.5*MSE(qx)+0.5*MSE(qy)",
+    "wetness_or_inundation_loss": false
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "weight_decay": 0.00001,
+    "gradient_clip": 1,
+    "scheduler": "ReduceLROnPlateau",
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 2,
+    "scheduler_threshold": 0.0001,
+    "scheduler_threshold_mode": "rel",
+    "scheduler_cooldown": 0,
+    "scheduler_min_lr": 0,
+    "scheduler_eps": 1e-8,
+    "minimum_epochs": 12,
+    "early_stopping_patience": 8,
+    "minimum_relative_improvement": 0.001,
+    "curriculum_handoff": "previous-stage validation-best weights; fresh optimizer and scheduler"
+  },
+  "physics_treatments": ["pino_resunet_small"],
+  "numerics": {
+    "precision": "float32",
+    "amp": false,
+    "tf32": false,
+    "cudnn_deterministic": true,
+    "torch_deterministic_algorithms": false,
+    "seed": 20260917
+  },
+  "slurm": {
+    "account": "m3780_g",
+    "qos": "shared",
+    "constraint": "gpu&hbm40g",
+    "array": "0-4%4"
+  }
+}

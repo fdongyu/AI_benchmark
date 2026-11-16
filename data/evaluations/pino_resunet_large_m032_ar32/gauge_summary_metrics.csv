@@ -1,0 +1,14 @@
+metric,metric_label,higher_is_better,test_events,finite_event_values,median,q25,q75
+depth_rmse_m,Gauge depth RMSE (m),False,6,6,0.04570469052726288,0.04309376274830304,0.056926464517568755
+depth_mae_m,Gauge depth MAE (m),False,6,6,0.023377999577741546,0.02121770334287846,0.025203097781081665
+depth_bias_m,Gauge depth bias (m),False,6,6,0.0004627849356281864,-0.0005698924475874247,0.0006532667710523624
+depth_correlation,Gauge depth correlation,True,6,6,0.9946076459039587,0.9922687676383075,0.9962999942928022
+depth_nse,Gauge depth NSE,True,6,6,0.9800460508457383,0.9774649273378402,0.9829101835755364
+depth_kge,Gauge depth KGE,True,6,6,0.8881525792486649,0.8804662897099248,0.8958806386763285
+depth_csi_at_0p05m,Gauge CSI at 0.05 m,True,6,6,0.9531795946890287,0.9281567489114659,0.9648786717752236
+depth_csi_at_0p1m,Gauge CSI at 0.10 m,True,6,6,0.964640111809923,0.9536107063114656,0.9682291666666667
+depth_csi_at_0p3m,Gauge CSI at 0.30 m,True,6,6,0.9671957671957672,0.9581320450885669,0.9741071428571428
+absolute_peak_depth_error_m,Absolute peak-depth error (m),False,6,6,0.10966223546711262,0.09129425138235092,0.12599533830507426
+absolute_peak_timing_error_hours,Absolute peak-time error (h),False,6,6,0.0,0.0,0.75
+absolute_arrival_timing_error_hours_at_0p05m,Absolute 0.05-m arrival error (h),False,6,6,1.0,1.0,1.0
+absolute_arrival_timing_error_hours_at_0p3m,Absolute 0.30-m arrival error (h),False,6,6,0.0,0.0,0.0

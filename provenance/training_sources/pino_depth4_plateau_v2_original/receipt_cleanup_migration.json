@@ -1,0 +1,34 @@
+{
+  "migration_id": "pino-v2-coldstart-repair-2026-11-15",
+  "reason": "The active v2 workflow was made independently cold-start after deletion of its v1 parent. Historical receipt payloads remain unchanged; their original scientific trainer and manifest hashes resolve to this exact snapshot rather than the edited active paths.",
+  "historical_receipts": {
+    "provenance/submission_receipts/pino_depth4_plateau_v2/submission_60863469.json": {
+      "payload_sha256": "512d9facebd1544aed87fa780900bd2e89fa449f8bf74fcb3e2beb0aa395e3e4",
+      "payload_unchanged": true
+    },
+    "provenance/submission_receipts/pino_depth4_plateau_v2/submission_60887630.json": {
+      "payload_sha256": "89ecb508eba9a1538ae7d047c46465e4a03dac6ec2d027c9d5482f2aa3be0397",
+      "payload_unchanged": true
+    }
+  },
+  "scientific_source_relocations": {
+    "src/train_pino_depth4_plateau_v2.py": {
+      "sha256": "0c1b01460c2cd0cf7d8a1a375eec5a14f64471254b8157448229cd362cc16ea9",
+      "snapshot": "provenance/training_sources/pino_depth4_plateau_v2_original/train_pino_depth4_plateau_v2.py"
+    },
+    "workflows/pino_depth4_plateau_v2/campaign_manifest.json": {
+      "sha256": "e079d0b62d9bc3e1b05d965c93a1cea2c827266a07ce4746ca041249556edd6c",
+      "snapshot": "provenance/training_sources/pino_depth4_plateau_v2_original/campaign_manifest.json"
+    }
+  },
+  "active_orchestration_paths_intentionally_changed": [
+    "src/train_pino_depth4_plateau_v2.py",
+    "workflows/pino_depth4_plateau_v2/campaign_manifest.json",
+    "workflows/pino_depth4_plateau_v2/next_stage.py",
+    "workflows/pino_depth4_plateau_v2/submit.sh",
+    "workflows/pino_depth4_plateau_v2/validate_stage.py",
+    "workflows/pino_depth4_plateau_v2/write_submission_receipt.py"
+  ],
+  "removed_active_orchestration_path": "workflows/pino_depth4_plateau_v2/import_v1_continuation.py",
+  "verification_note": "Do not compare a historical receipt's source hashes to the repaired active workflow. Verify the receipt payload hash above, then resolve its original trainer and campaign-manifest identities through this snapshot. The receipt itself retains the original hashes for every other historical launch file."
+}

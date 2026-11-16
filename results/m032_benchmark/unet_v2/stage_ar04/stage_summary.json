@@ -1,0 +1,37 @@
+{
+  "architecture_key": "unet_v2",
+  "best_epoch": 23,
+  "best_validation_supervised": 7.386980959944367,
+  "checkpoint_sha256": {
+    "best": "33257d0fdc294a613c08ee9a808463bb0312e95532733d6cd5e56587fb146829",
+    "final": "cab85067018d8dd6ecb5d683bc551d3b37f4cf0b2c7aff8ef06c823d3d2e374b",
+    "last": "cab85067018d8dd6ecb5d683bc551d3b37f4cf0b2c7aff8ef06c823d3d2e374b"
+  },
+  "complete": true,
+  "completed_utc": "2026-11-10T08:34:14.712638+00:00",
+  "convergence_rule": {
+    "maximum_epochs": 240,
+    "minimum_epochs": 12,
+    "minimum_relative_improvement": 0.001,
+    "patience": 8
+  },
+  "early_stopping_stale_epochs": 8,
+  "epochs_completed": 31,
+  "epochs_required": 240,
+  "epochs_this_invocation": 7,
+  "forecast_transitions_completed_this_stage": 253952,
+  "initial_checkpoint": null,
+  "initial_checkpoint_sha256": null,
+  "invocation_elapsed_minutes": 22.893894596894583,
+  "invocation_end_epoch": 31,
+  "invocation_id": "61076252.0.2.1794298273.29588",
+  "invocation_start_epoch": 25,
+  "model": "unet_v2",
+  "primary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/unet_v2/stage_ar04/checkpoint_best_validation_supervised.pt",
+  "primary_evaluation": false,
+  "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+  "rollout_hours": 4,
+  "secondary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/unet_v2/stage_ar04/checkpoint_final.pt",
+  "stop_reason": "validation_plateau",
+  "subset": "m032"
+}

@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "scope_id": "houston-m032-publication-six-v1",
+  "last_audited_date_utc": "2026-11-16",
+  "release_ready": false,
+  "reference_model_id": "pino_resunet_large",
+  "release_blockers": [
+    "ResU-Net-large failed at AR4 and has no valid AR32 checkpoint.",
+    "Only PINO-ResU-Net-large has a retained 192-trajectory physical rollout evaluation.",
+    "The generalized evaluator has not yet been audited across all six model adapters.",
+    "The retained PINO-ResU-Net-large run continued a deleted earlier AR4 parent; that parent must be reconstructed for an exact end-to-end historical training replay.",
+    "A public repository/data license has not been selected.",
+    "A public data/archive DOI has not been assigned."
+  ],
+  "release_todos": {
+    "license": null,
+    "dataset_or_archive_doi": null,
+    "complete_external_data_checksum_inventory": false
+  },
+  "dataset": {
+    "canonical_root": "/global/cfs/cdirs/m4267/dongyu/AI_foundation/DATA/rdycore_ml_dataset_core",
+    "environment_override": "HOUSTON_DATASET_ROOT",
+    "events": 39,
+    "members_per_event": 32,
+    "trajectory_count": 1248,
+    "split_trajectories": {
+      "train": 864,
+      "validation": 192,
+      "test": 192
+    },
+    "hdf5_file_count_including_static_grid": 1249,
+    "hdf5_bytes": 147564086109,
+    "control_artifacts": [
+      {
+        "path": "data/metadata/m032/shared/trajectory_split.csv",
+        "sha256": "823b9810e95a7c4e7ebdf09c7161122b7be87a0b177a879cf6d6cd0e8ebbfa55"
+      },
+      {
+        "path": "data/metadata/m032/shared/event_split.csv",
+        "sha256": "c51556ec145bef17a1e3c83a1c20a9e4c3024b64cd6750accbd699c69486bfc8"
+      },
+      {
+        "path": "data/metadata/m032/shared/normalization.json",
+        "sha256": "2dc069fc41f9f3699133e2b4a18eb9d67ee36aaef7fe32d2b3f77bdd42387e9c"
+      }
+    ]
+  },
+  "common_contract": {
+    "subset": "m032",
+    "input_feature_count": 13,
+    "input_features_ordered": [
+      "height_t",
+      "momentum_x_t",
+      "momentum_y_t",
+      "log1p_rainfall_t",
+      "ocean_height_t",
+      "bed_elevation",
+      "domain_mask",
+      "ocean_boundary_mask",
+      "x_coordinate",
+      "y_coordinate",
+      "stream_core_mask",
+      "channel_corridor_mask",
+      "stream_proximity"
+    ],
+    "prediction_target": "normalized conservative-state increment",
+    "external_residual_update": true,
+    "curriculum_hours": [4, 8, 16, 32],
+    "training_forecast_transitions_per_epoch": 8192,
+    "validation_forecast_transitions": 2048,
+    "supervised_expression": "2*depth_mse + 0.5*qx_mse + 0.5*qy_mse",
+    "relative_depth_qx_qy_emphasis": [4, 1, 1],
+    "auxiliary_losses": [],
+    "mixed_precision": "off",
+    "tf32": false,
+    "gradient_clip_norm": 1.0,
+    "selection_metric": "validation_supervised"
+  },
+  "scientific_comparisons": {
+    "architecture_baselines": [
+      "unet_v2",
+      "fno_v2"
+    ],
+    "physics_attribution_pairs": [
+      {
+        "pair_id": "small",
+        "data_only": "resunet_small",
+        "physics_informed": "pino_resunet_small",
+        "training_complete": true,
+        "common_physical_evaluation_complete": false
+      },
+      {
+        "pair_id": "large",
+        "data_only": "resunet_large",
+        "physics_informed": "pino_resunet_large",
+        "training_complete": false,
+        "common_physical_evaluation_complete": false
+      }
+    ]
+  },
+  "provenance_contract": {
+    "active_shared_registry": "workflows/m032_benchmark_training/model_registry.json",
+    "active_shared_registry_trainable_models": 5,
+    "pino_resunet_large_evaluation_entrypoint": "workflows/evaluate_pino_resunet_large.sbatch",
+    "pino_resunet_large_model_loader": "model/pino_resunet_large/load_historical_checkpoint.py",
+    "model_plugin_root": "model",
+    "original_training_source_snapshot": "provenance/training_sources/m032_depth4_plateau_v1_original",
+    "pino_resunet_large_original_source_snapshot": "provenance/training_sources/pino_depth4_plateau_v2_original",
+    "pino_resunet_large_evaluation_source_snapshot": "provenance/evaluation_sources/pino_depth4_plateau_v2_original",
+    "archived_replay_note": "The unused coldstart-v1 prospective replay produced no retained result and was moved to the external cleanup archive on 2026-11-16.",
+    "snapshot_purpose": "Immutable compact evidence retained only because completed training and evaluation provenance binds original source hashes; extra historical entries are not active publication scope."
+  },
+  "models": [
+    {
+      "id": "unet_v2",
+      "publication_name": "U-Net",
+      "role": "architecture_baseline",
+      "architecture_key": "unet_v2",
+      "physics_loss_enabled": false,
+      "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+      "status": "complete_ar32",
+      "reportable_ar32": true,
+      "slurm_job_id": "61076252_0",
+      "ar32": {
+        "epochs_completed": 17,
+        "best_epoch": 9,
+        "best_validation_supervised": 33.45808978495552,
+        "forecast_transitions_completed": 139264,
+        "stop_reason": "validation_plateau",
+        "completed_utc": "2026-11-10T12:29:50.451267+00:00"
+      },
+      "artifacts": {
+        "checkpoint": {
+          "path": "results/m032_benchmark/unet_v2/stage_ar32/checkpoint_best_validation_supervised.pt",
+          "sha256": "0420b7f8c2485f36ea4b3d376fc0c0fb9b3da86731f642bc91dc86fff23656b8"
+        },
+        "stage_summary": {
+          "path": "results/m032_benchmark/unet_v2/stage_ar32/stage_summary.json",
+          "sha256": "94d510d4d5bcc3438f569b357ce5e721f8ef20153deed960def500cc7b34eebd"
+        },
+        "training_config": {
+          "path": "results/m032_benchmark/unet_v2/stage_ar32/training_config.json",
+          "sha256": "4440dee0adc9a1dfd1844f571b4d53d692a188412650fef09a53f15aa19625ef"
+        },
+        "provenance": {
+          "path": "results/m032_benchmark/unet_v2/stage_ar32/provenance.json",
+          "sha256": "7621d36eaaf28010097e874cc51b3c6668e53322a754ba20b364130f2171c911"
+        },
+        "history": {
+          "path": "results/m032_benchmark/unet_v2/stage_ar32/history.csv",
+          "sha256": "c40acb9d9b7fb7a931c60de38730e16722b743a8ffa3518b1d7b56c5dd275af0"
+        }
+      },
+      "physical_evaluation_status": "not_retained"
+    },
+    {
+      "id": "fno_v2",
+      "publication_name": "FNO",
+      "role": "architecture_baseline",
+      "architecture_key": "fno_v2",
+      "physics_loss_enabled": false,
+      "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+      "status": "complete_ar32",
+      "reportable_ar32": true,
+      "slurm_job_id": "61076252_1",
+      "ar32": {
+        "epochs_completed": 38,
+        "best_epoch": 30,
+        "best_validation_supervised": 24.20270185586419,
+        "forecast_transitions_completed": 311296,
+        "stop_reason": "validation_plateau",
+        "completed_utc": "2026-11-15T10:49:09.304686+00:00"
+      },
+      "artifacts": {
+        "checkpoint": {
+          "path": "results/m032_benchmark/fno_v2/stage_ar32/checkpoint_best_validation_supervised.pt",
+          "sha256": "89a919c3b27ce814690eb6b3f5bc5b99ed43b9ca457ae4bace1270f6d57d2973"
+        },
+        "stage_summary": {
+          "path": "results/m032_benchmark/fno_v2/stage_ar32/stage_summary.json",
+          "sha256": "1ce53691743b4388853db604617a74f6a37145420e0543a34c51f122f09dcef9"
+        },
+        "training_config": {
+          "path": "results/m032_benchmark/fno_v2/stage_ar32/training_config.json",
+          "sha256": "a4ebbd5d5a4e4436065e844f2700ecf89af0c0067d7a49d3d8716d4c48c9b6ce"
+        },
+        "provenance": {
+          "path": "results/m032_benchmark/fno_v2/stage_ar32/provenance.json",
+          "sha256": "d759be76d79a79cb12d7133826f977ad59c881f975421e37b1d9e248fd8fdad9"
+        },
+        "history": {
+          "path": "results/m032_benchmark/fno_v2/stage_ar32/history.csv",
+          "sha256": "e2be99773901fba99dc4b6311a765e7ea67091b48b572f51868fe18c7baaa8e4"
+        }
+      },
+      "physical_evaluation_status": "not_retained"
+    },
+    {
+      "id": "resunet_small",
+      "publication_name": "ResU-Net-small",
+      "role": "matched_data_only_control",
+      "pair_id": "small",
+      "architecture_key": "houston_resunet_small",
+      "physics_loss_enabled": false,
+      "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+      "status": "complete_ar32",
+      "reportable_ar32": true,
+      "slurm_job_id": "60991759_6",
+      "ar32": {
+        "epochs_completed": 60,
+        "best_epoch": 52,
+        "best_validation_supervised": 5.327677874983019,
+        "forecast_transitions_completed": 491520,
+        "stop_reason": "validation_plateau",
+        "completed_utc": "2026-11-10T06:55:16.808585+00:00"
+      },
+      "artifacts": {
+        "checkpoint": {
+          "path": "results/m032_benchmark/resunet_small/stage_ar32/checkpoint_best_validation_supervised.pt",
+          "sha256": "a84732849c38b638998775acb229687d4161e38a8f3ca2f97fd9e6c8900518cf"
+        },
+        "stage_summary": {
+          "path": "results/m032_benchmark/resunet_small/stage_ar32/stage_summary.json",
+          "sha256": "f1c6d9fb95dbd93b2dd12a69d6dd885d460c2b7d00caf8df63fca07bd5723bcc"
+        },
+        "training_config": {
+          "path": "results/m032_benchmark/resunet_small/stage_ar32/training_config.json",
+          "sha256": "b4b5a1053f2b60f722a5e0c1d6c024025866fbd1d835f507de14570ee87b6289"
+        },
+        "provenance": {
+          "path": "results/m032_benchmark/resunet_small/stage_ar32/provenance.json",
+          "sha256": "ff8ef9cd6b0e3948b67aa7672c402141605f6704fbd566b23f644bd35c800a45"
+        },
+        "history": {
+          "path": "results/m032_benchmark/resunet_small/stage_ar32/history.csv",
+          "sha256": "5deac91b07919b01f6450a0a6faa717316f6817d819fd2ef4fb081367adeec44"
+        }
+      },
+      "physical_evaluation_status": "not_retained"
+    },
+    {
+      "id": "pino_resunet_small",
+      "publication_name": "PINO-ResU-Net-small",
+      "role": "matched_physics_treatment",
+      "pair_id": "small",
+      "architecture_key": "houston_resunet_small",
+      "physics_loss_enabled": true,
+      "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+      "status": "complete_ar32",
+      "reportable_ar32": true,
+      "slurm_job_id": "60991759_7",
+      "ar32": {
+        "epochs_completed": 60,
+        "best_epoch": 57,
+        "best_validation_supervised": 5.615293978980834,
+        "forecast_transitions_completed": 491520,
+        "stop_reason": "validation_plateau",
+        "completed_utc": "2026-11-14T20:37:08.812781+00:00"
+      },
+      "artifacts": {
+        "checkpoint": {
+          "path": "results/m032_benchmark/pino_resunet_small/stage_ar32/checkpoint_best_validation_supervised.pt",
+          "sha256": "bd63d56775c6e7ec7f3e4c574bab416f8c8cdeb4eb8572f79dea287c8dd593c0"
+        },
+        "stage_summary": {
+          "path": "results/m032_benchmark/pino_resunet_small/stage_ar32/stage_summary.json",
+          "sha256": "920a0fc761ddb0adfdb823a8af56ca1f7b043522ee9712bffa01d1222dd32486"
+        },
+        "training_config": {
+          "path": "results/m032_benchmark/pino_resunet_small/stage_ar32/training_config.json",
+          "sha256": "60b16ce3751331a1d24a1f60d5caac791a2aacd03618e0446ea03b275d52147c"
+        },
+        "provenance": {
+          "path": "results/m032_benchmark/pino_resunet_small/stage_ar32/provenance.json",
+          "sha256": "5a5355fee4059ff51ea82342787edec1e41fce04dba2eb77c7b40d99b1eb09a2"
+        },
+        "history": {
+          "path": "results/m032_benchmark/pino_resunet_small/stage_ar32/history.csv",
+          "sha256": "c1bf320114abc32082e1a0df4d0efeee3b73147687658fdb545bef60619b439f"
+        }
+      },
+      "physical_evaluation_status": "not_retained"
+    },
+    {
+      "id": "resunet_large",
+      "publication_name": "ResU-Net-large",
+      "role": "matched_data_only_control",
+      "pair_id": "large",
+      "architecture_key": "houston_resunet_large",
+      "physics_loss_enabled": false,
+      "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+      "status": "failed_ar4",
+      "reportable_ar32": false,
+      "slurm_job_id": "60991759_8",
+      "ar32": null,
+      "failure": {
+        "stage": "AR4",
+        "last_completed_epoch": 9,
+        "best_epoch": 7,
+        "best_validation_supervised": 8.103914388056737,
+        "error_type": "RuntimeError",
+        "error_summary": "Gradient total norm was non-finite during clip_grad_norm_.",
+        "evidence": [
+          {
+            "path": "results/m032_benchmark/resunet_large/failure_summary.json",
+            "sha256": "e428e28bd919cab44a993b302688aed5bfab3d2efb98fd9379805d82694b0166"
+          },
+          {
+            "path": "results/m032_benchmark/resunet_large/history.csv",
+            "sha256": "fed0b1c9964dcab5938408b696567dd358b577f03c4d0512f33c0d692dd5519a"
+          },
+          {
+            "path": "results/m032_benchmark/resunet_large/FAILURE.md",
+            "sha256": "6ac24083dab034f5cef9258993001e5ae9df33b3874a8e6de88c7b941be54736"
+          }
+        ]
+      },
+      "artifacts": null,
+      "physical_evaluation_status": "not_possible_without_ar32"
+    },
+    {
+      "id": "pino_resunet_large",
+      "publication_name": "PINO-ResU-Net-large",
+      "role": "matched_physics_treatment_and_reference_model",
+      "pair_id": "large",
+      "architecture_key": "houston_resunet_large",
+      "physics_loss_enabled": true,
+      "protocol_id": "houston-m032-common13-pino-depth4-plateau-v2",
+      "status": "complete_ar32",
+      "reportable_ar32": true,
+      "slurm_job_id": "60887630",
+      "lineage_note": "The retained v2 lineage continued a hash-bound AR4 epoch-120 parent from the removed v1 lineage before completing v2; the unused cold-start replay was not an exact replay and was archived.",
+      "ar32": {
+        "epochs_completed": 60,
+        "best_epoch": 52,
+        "best_validation_supervised": 3.0332421664857083,
+        "forecast_transitions_completed": 491520,
+        "stop_reason": "validation_plateau",
+        "completed_utc": "2026-11-07T09:13:50.151930+00:00"
+      },
+      "artifacts": {
+        "checkpoint": {
+          "path": "results/m032_benchmark/pino_resunet_large/stage_ar32/checkpoint_best_validation_supervised.pt",
+          "sha256": "189f6e4a7b5a5493d82ba17f7f563d50d5890660f8c390c0ab74cc6ed59e90eb"
+        },
+        "stage_summary": {
+          "path": "results/m032_benchmark/pino_resunet_large/stage_ar32/stage_summary.json",
+          "sha256": "fc2fc4c45901e75252b04e60314a6a6844448bfc4617d3c2e49842d2e1d2db52"
+        },
+        "training_config": {
+          "path": "results/m032_benchmark/pino_resunet_large/stage_ar32/training_config.json",
+          "sha256": "08e00371721720d50fd767181f06d6707085343f0b8e1f6e66945371798c2a7a"
+        },
+        "provenance": {
+          "path": "results/m032_benchmark/pino_resunet_large/stage_ar32/provenance.json",
+          "sha256": "e9eba2bbdba842e8daf3e8756e1bf95b2b72b5d9e5357a946356d9aec3520f3d"
+        },
+        "history": {
+          "path": "results/m032_benchmark/pino_resunet_large/stage_ar32/history.csv",
+          "sha256": "05c29a9374ddd81d29dd8521403c27584819e620702842631a9a78974bc26284"
+        }
+      },
+      "physical_evaluation_status": "complete_192_trajectories"
+    }
+  ],
+  "retained_physical_evaluation": {
+    "model_id": "pino_resunet_large",
+    "test_trajectory_count": 192,
+    "root": "data/evaluations/pino_resunet_large_m032_ar32",
+    "artifacts": [
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/export_metadata.json",
+        "sha256": "023ab755c200ae052c99d37ae32a65bae0f35d1b541e26ae29aa601b708c31be"
+      },
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/domain_summary_metrics.csv",
+        "sha256": "9804dc911c4d929d5bdf541db1d5ac81ad1421a30c7806d2c0829ef7022ec928"
+      },
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/gauge_summary_metrics.csv",
+        "sha256": "7fddbc6b6442e8831e45aeb9d752d31ff26d667bc6544eeafd174201e3ce83b8"
+      },
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/rollout_status.csv",
+        "sha256": "53953e77ee3853786f7fa42afd8b1109c83c4df76df326f0acc8ff5aec68a8d3"
+      },
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/figures/event_hydrographs/AORC_2003111519_01422.hydrographs.png",
+        "sha256": "a34e5642c61a41a313c8a7fdab61b4c4896945cf34849832ffae444b9f5c505a"
+      },
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/figures/peak_flood_maps/AORC_2003111519_01422__m001.peak_flood.png",
+        "sha256": "f050aa954d98bdb1c7d006787a65545e65eb6bb951ffc3f1dfd2a54e53ccb7a8"
+      },
+      {
+        "path": "data/evaluations/pino_resunet_large_m032_ar32/figures/spatial_error_maps/full_domain_spatial_errors.png",
+        "sha256": "e3982205abdec546185e5493132f1c69e5fd2eb9a6fc79862087ce4c2e8e20f9"
+      }
+    ]
+  },
+  "interpretation_warning": "best_validation_supervised is a normalized training-selection objective, not a physical-unit held-out metric or final model ranking."
+}

@@ -1,0 +1,49 @@
+{
+  "architecture_key": "houston_resunet_large",
+  "best_epoch": 136,
+  "best_validation_supervised": 1.2465911714376698,
+  "checkpoint_sha256": {
+    "best": "f026ad65f12b8a0313ec4c83c3f74190bffbadcd8d22147aa6c1d86447bcca3b",
+    "final": "5c9c2494c2e30400588f3298324db186e40d981bc796d450d454d858748d3cb3",
+    "last": "5c9c2494c2e30400588f3298324db186e40d981bc796d450d454d858748d3cb3"
+  },
+  "complete": true,
+  "completed_utc": "2026-11-05T23:07:48.849691+00:00",
+  "continuation_parent": {
+    "checkpoint_best_sha256": "ba1c56e57e23e8293c1c39ec9241326b5e2af9a2f373da2c5b1471af3a6c7ed0",
+    "checkpoint_last_sha256": "401b15f0c97914730654753d57d9a5990d7a768a80e90100cd05af6cddcc604c",
+    "epoch": 120,
+    "history_sha256": "2b5c7e26b472a9965dc8a7d1277aaa5bbe0d7c06cf46342d60cdd567fafc204c",
+    "output_root": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1",
+    "protocol_id": "houston-m032-common13-pino-depth4-plateau-v1",
+    "provenance_sha256": "8a984f0ea9cc0468f3c33c8f6abbccfcc9c2e5191f7639fb2d7b78f6cecb26c2",
+    "slice_status_sha256": "2d1df288dfc000e546756d2b6079b567b956ae54597a65bd705c8e71190d9b66",
+    "stage": "AR4",
+    "training_config_sha256": "6869b12376e8627bd9da53127070ad0f3a28186132d34ac2b3c7d2bb4a3a5df8"
+  },
+  "convergence_rule": {
+    "maximum_epochs": 240,
+    "minimum_epochs": 12,
+    "minimum_relative_improvement": 0.001,
+    "patience": 8
+  },
+  "early_stopping_stale_epochs": 8,
+  "epochs_completed": 144,
+  "epochs_required": 240,
+  "epochs_this_invocation": 12,
+  "forecast_transitions_completed_this_stage": 1179648,
+  "initial_checkpoint": null,
+  "initial_checkpoint_sha256": null,
+  "invocation_elapsed_minutes": 126.48368031978607,
+  "invocation_end_epoch": 144,
+  "invocation_id": "60863469.1.1793912453.16404",
+  "invocation_start_epoch": 133,
+  "model": "pino_resunet_large",
+  "primary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v2/pino_resunet_large/stage_ar04/checkpoint_best_validation_supervised.pt",
+  "primary_evaluation": false,
+  "protocol_id": "houston-m032-common13-pino-depth4-plateau-v2",
+  "rollout_hours": 4,
+  "secondary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v2/pino_resunet_large/stage_ar04/checkpoint_final.pt",
+  "stop_reason": "validation_plateau",
+  "subset": "m032"
+}

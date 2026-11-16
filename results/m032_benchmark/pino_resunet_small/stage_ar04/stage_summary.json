@@ -1,0 +1,37 @@
+{
+  "architecture_key": "houston_resunet_small",
+  "best_epoch": 109,
+  "best_validation_supervised": 2.1167259700769403,
+  "checkpoint_sha256": {
+    "best": "7ab6b38cea23a4adae018fbe155a063a6cdccd7589b33ea90ac3d7b1f7b51356",
+    "final": "03f6f6dd1265625d45f08fa4719a0a7c8658e438ccdb61512f39dd88b1440138",
+    "last": "03f6f6dd1265625d45f08fa4719a0a7c8658e438ccdb61512f39dd88b1440138"
+  },
+  "complete": true,
+  "completed_utc": "2026-11-09T22:43:44.101819+00:00",
+  "convergence_rule": {
+    "maximum_epochs": 240,
+    "minimum_epochs": 12,
+    "minimum_relative_improvement": 0.001,
+    "patience": 8
+  },
+  "early_stopping_stale_epochs": 8,
+  "epochs_completed": 117,
+  "epochs_required": 240,
+  "epochs_this_invocation": 5,
+  "forecast_transitions_completed_this_stage": 958464,
+  "initial_checkpoint": null,
+  "initial_checkpoint_sha256": null,
+  "invocation_elapsed_minutes": 28.767744068304697,
+  "invocation_end_epoch": 117,
+  "invocation_id": "60991759.7.14.1794262479.1906",
+  "invocation_start_epoch": 113,
+  "model": "pino_resunet_small",
+  "primary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/pino_resunet_small/stage_ar04/checkpoint_best_validation_supervised.pt",
+  "primary_evaluation": false,
+  "protocol_id": "houston-m032-common13-depth4-plateau-v1",
+  "rollout_hours": 4,
+  "secondary_checkpoint": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_depth4_plateau_v1/pino_resunet_small/stage_ar04/checkpoint_final.pt",
+  "stop_reason": "validation_plateau",
+  "subset": "m032"
+}

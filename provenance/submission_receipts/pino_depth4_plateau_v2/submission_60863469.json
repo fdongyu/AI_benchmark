@@ -1,0 +1,62 @@
+{
+  "account": "m3780_g",
+  "campaign_id": "houston-common13-pino-depth4-plateau-v2",
+  "command": "sbatch --parsable --export=ALL\\,PINO_DEPTH_ENV=/global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v2/runtime_env.sh /global/cfs/cdirs/m4267/dongyu/AI_benchmark/workflows/pino_depth4_plateau_v2/train.sbatch",
+  "continuation_start": {
+    "continuation_import": {
+      "path": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v2/pino_resunet_large/stage_ar04/continuation_import.json",
+      "sha256": "fd8658a403fc3be99366a425bf6d06f93a340b9ca5e527fc70c459adb0a30e1b"
+    },
+    "destination_stage": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v2/pino_resunet_large/stage_ar04",
+    "migrated_artifact_sha256": {
+      "checkpoint_best_validation_supervised.pt": "9d8fd3d5caedb3fca55e90fd4f754c530eafd6d734d13904aa738957e8833625",
+      "checkpoint_last.pt": "9679cea9d0d4376ea48dfb6804d29b6042337b3a8908baa0e97b62ff04aa1187",
+      "history.csv": "2b5c7e26b472a9965dc8a7d1277aaa5bbe0d7c06cf46342d60cdd567fafc204c",
+      "provenance.json": "b9a9b52dac63c8c90bd5c35df2392b40d2d6f6b34fb971722d1f8c5aad5b153e",
+      "training_config.json": "4c01056aec61b60271c9614fd5cec3cfcc98e7e184a0b77615cba1a4a1bec9ae"
+    },
+    "parent": {
+      "artifact_sha256": {
+        "checkpoint_best_validation_supervised.pt": "ba1c56e57e23e8293c1c39ec9241326b5e2af9a2f373da2c5b1471af3a6c7ed0",
+        "checkpoint_last.pt": "401b15f0c97914730654753d57d9a5990d7a768a80e90100cd05af6cddcc604c",
+        "history.csv": "2b5c7e26b472a9965dc8a7d1277aaa5bbe0d7c06cf46342d60cdd567fafc204c",
+        "provenance.json": "8a984f0ea9cc0468f3c33c8f6abbccfcc9c2e5191f7639fb2d7b78f6cecb26c2",
+        "slice_status.json": "2d1df288dfc000e546756d2b6079b567b956ae54597a65bd705c8e71190d9b66",
+        "training_config.json": "6869b12376e8627bd9da53127070ad0f3a28186132d34ac2b3c7d2bb4a3a5df8"
+      },
+      "epoch": 120,
+      "protocol_id": "houston-m032-common13-pino-depth4-plateau-v1",
+      "source_stage": "/global/cfs/cdirs/m4267/dongyu/AI_benchmark/results/m032_pino_depth4_plateau_v1/pino_resunet_large/stage_ar04",
+      "stage": "AR4"
+    },
+    "state_equality_verified": true
+  },
+  "host": "login15",
+  "source_sha256": {
+    "src/train_pino_depth4_plateau_v2.py": "0c1b01460c2cd0cf7d8a1a375eec5a14f64471254b8157448229cd362cc16ea9",
+    "src/vendor/pino/model.py": "f686a3f2ac1335c91a3c4e1752b236e6f01ddca63706c2885de0abfa246b35f2",
+    "src/vendor/pino/physics.py": "5201fda9e71c807cbd79536509d77cbf3cc71b0d5379c48fc7dd375eae8ebd82",
+    "workflows/pino_depth4_plateau_v2/campaign_manifest.json": "e079d0b62d9bc3e1b05d965c93a1cea2c827266a07ce4746ca041249556edd6c",
+    "workflows/pino_depth4_plateau_v2/import_v1_continuation.py": "ebbeac9dda2dd8373a7536da0b7aca89dcde056f0397c14ba42e1944c73ada77",
+    "workflows/pino_depth4_plateau_v2/next_stage.py": "988c17d990a80624f9dd6bab2dffee56e45e8971877a76c302fbd24465abec51",
+    "workflows/pino_depth4_plateau_v2/run_trainer_with_io_status.py": "ad7588ced9e82ba99ba10dfbb49484959bbfe010b6d33ccda221882dceed511f",
+    "workflows/pino_depth4_plateau_v2/runtime_env.sh": "df8457a876bf7405a52ae44302ca7dbf9d6b82b9a0bacd2ec5a97d4370f56c1c",
+    "workflows/pino_depth4_plateau_v2/submit.sh": "ab092b0efef56b698478f10a1feacce2f469d42317d02204dfa81645cbea3e86",
+    "workflows/pino_depth4_plateau_v2/train.sbatch": "c14e334137d84e00b645bdadfb0c57c9ac1786f2bed391dffb034f60a15c751c",
+    "workflows/pino_depth4_plateau_v2/validate_stage.py": "7700ba3cd3ba5668d366a6ddcccdfec7ea14e394c11518962627d20880a0bc71",
+    "workflows/pino_depth4_plateau_v2/write_submission_receipt.py": "2a7510dd041d0e6c997fb6a5a36ade0808b3863b78b7dcdabcd6bcb0d1f5b586"
+  },
+  "submitted_utc": "2026-11-05T17:12:04.048655+00:00",
+  "task": {
+    "curriculum_hours": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "model": "pino_resunet_large",
+    "subset": "m032"
+  },
+  "training_job_id": "60863469",
+  "user": "feng779"
+}
